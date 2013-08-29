@@ -1,6 +1,6 @@
 /*
-htmLawed_README.txt, 26 May 2013
-htmLawed 1.1.14, 8 August 2012
+htmLawed_README.txt, 11 August 2013
+htmLawed 1.1.15, 11 August 2013
 Copyright Santosh Patnaik
 Dual licensed with LGPL 3 and GPL 2+
 A PHP Labware internal utility - http://www.bioinformatics.org/phplabware/internal_utilities/htmLawed
@@ -1344,6 +1344,8 @@ A PHP Labware internal utility - http://www.bioinformatics.org/phplabware/intern
 
   `Version number - Release date. Notes`
   
+  1.1.15 - 11 August 2013. Improved tidying/prettifying functionality
+    
   1.1.14 - 8 August 2012. Fix for possible segmental loss of incremental indentation during 'tidying' when 'balance' is disabled; fix for non-effectuation under some circumstances of a corrective behavior to preserve plain text within elements like 'blockquote'.
   
   1.1.13 - 22 July 2012. Added feature allowing use of custom, non-standard attributes or custom rules for standard attributes
@@ -1462,7 +1464,7 @@ A PHP Labware internal utility - http://www.bioinformatics.org/phplabware/intern
 -- 4.10  Acknowledgements ------------------------------------------o
 
 
-  Nicholas Alipaz, Bryan Blakey, Pádraic Brady, Ulf Harnhammer, Gareth Heyes, Klaus Leithoff, Lukasz Pilorz, Shelley Powers, Edward Yang, and many anonymous users.
+  Nicholas Alipaz, Bryan Blakey, Pádraic Brady, Dac Chartrand, Ulf Harnhammer, Gareth Heyes, Klaus Leithoff, Lukasz Pilorz, Shelley Powers, Edward Yang, and many anonymous users.
 
   Thank you!
 
