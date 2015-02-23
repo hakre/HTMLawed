@@ -1,9 +1,9 @@
 /*
-htmLawed_TESTCASE.txt, 9 June 2013
-htmLawed 1.2.beta.2, 9 June 2013
+htmLawed_TESTCASE.txt, 19 January 2015
+htmLawed 1.2.beta.7, 19 January 2015
 Copyright Santosh Patnaik
 Dual licensed with LGPL 3 and GPL 2+
-A PHP Labware internal utility - http://www.bioinformatics.org/phplabware/internal_utilities/htmLawed/beta
+A PHP Labware internal utility - http://www.bioinformatics.org/phplabware/internal_utilities/htmLawed
 */
 
 This file has UTF-8-encoded text with both correct and incorrect/malformed HTML/XHTML code snippets to test htmLawed (test cases/samples). The entire text may also be used as a unit.
@@ -291,6 +291,10 @@ Find me at <a href="http://www.xy.com" itemprop="url">www.xy.com</a>
 <strong>XML declaration</strong>: <?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><br />
 <strong>XML-invalid character code-point (may not replicate)</strong>: <p class=3DMsoNormal>“Where is he?” asked both Mary – the one so lovely – and Jane.</p>
 
+<h6>Nesting</h6>
+
+<strong>Block or inline a</strong>: <p><a href="link">text</a></p><a href="link"><div>hi</div></a><br />
+
 <h6>Non-English text-1</h6>
 
 Inscrieţi-vă acum la a Zecea Conferinţă Internaţională<br />
@@ -338,6 +342,7 @@ na Alemanha.
   <rp>(</rp><rt>aaa</rt><rp>)</rp>
 </ruby>
 
+
 <h6>Tables</h6>
 
 <strong>Omitted closing tags:</strong> <table>
@@ -369,6 +374,9 @@ na Alemanha.
 <strong>Font element intended as 'block' element:</strong> <div><font color='red'><div>hi</div></font></div><br />
 <strong>Font element intended as 'block' element:</strong> <center><font color='red'><div>hi</div><div>QQQ</div></font></center><br />
 
+<h6>Tidy</h6>
+<strong>White-space handling:</strong> abc<em> def </em> ghi   abc <em>def</em> ghi
+
 <h6>URLs</h6>
 
 <strong>Relative and absolute:</strong> <a href="mailto:x"></a>, <a href="http://a.com/b/c/d.f"></a>, <a href="./../d.f"></a>, <a href="./d.f"></a>, <a href="d.f"></a>, <a href="#s"></a>, <a href="./../../d.f#s"></a><br />
@@ -376,9 +384,11 @@ na Alemanha.
 <strong>CSS URLs:</strong> <div style="background-image: url('a.gif');"></div>, <div style="background-image: URL(&quot;a.gif&quot;);"></div>, <div style="background-image: url('http://a.com/a.gif');"></div>, <div style="background-image: url('./../a.gif');"></div>, <div style="background-image: &#117;r&#x6C;('js&#58;xss'&#x29;"></div><br />
 <strong>Double URLs:</strong> <a style="behaviour: url(foo) url(http://example.com/xss.htc)">b</a><br />
 <strong>Anti-spam:</strong> (try regex for 'http://a.com', etc.) <a href="mailto:x@y.com"></a>, <a href="http://a.com/b@d.f"></a>, <a href="a.com/d.f" rel="nofollow"></a>, <a href="a.com/d.f" rel="1, 2"></a>, <a href="a.com/d.f"></a>, <a href="b.com/d.f"></a>, <a href="c.com/d.f">, <a href="denied:http://c.com/d.f"></a><br />
+<strong>Soft-hyphen:</strong> <a href="http://q=ídis­c">ídis­c</a>
 
 <h6>XSS</h6>
 
+<img alt="<img onmouseover=confirm(1)//"<"">
 '';!--"<xss>=&{()}<br />
 <img src="javascript%3Aalert('xss');" /><br />
 <img src="javascript:alert('xss');" /><br />
@@ -394,6 +404,7 @@ src=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#1
 <a style=";-moz-binding:url(http://lukasz.pilorz.net/xss/xss.xml#xss)" href="http://example.com">test</a><br />
 <strong>Bad IE7:</strong> <a href="http://x&x=%22+style%3d%22background-image%3a+expression%28alert
 %28%27xss%3f%29%29">x</a><br />
+<strong>Opera:</strong> <a href="\xE2\x80\x83javascript:alert(123)">link</a>
 <strong>Bad IE7:</strong> <a style=color:expr/*comment*/ession(alert(document.domain))>xxx</a><br />
 <strong>Bad IE7:</strong> <a href="xxx" style="background: exp&#x72;ession(alert('xss'));">xxx</a><br />
 <strong>Bad IE7:</strong> <a href="xxx" style="background: &#101;xpression(alert('xss'));">xxx</a><br />
